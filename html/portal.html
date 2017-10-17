@@ -5,21 +5,46 @@
     <title>TrendyTweet</title>
     <!-- stylesheets -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/Users/mariaarbisman/WDI/Project1-trendytweet/css/portal.css">
+    <link rel="stylesheet" href="../css/portal.css">
 
     <!--scripts-->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../js/portal.js"></script>
   </head>
   <body>
     <header>Our header</header>
-<div class="row">
-    <div class="col-xs-6 col-sm-3">1</div>
-    <div class="col-xs-6 col-sm-3">2</div>
-    <div class="clearfix visible-xs-block"></div>
-    <div class="col-xs-6 col-sm-3">3</div>
-    <div class="col-xs-6 col-sm-3">4</div>
+<div class="container">
+
+  <div class="row">
+      <div class="col-xs-6 col-sm-3">
+        <form id="getPosts">
+   <div class="form">
+    <label for="search">Search</label>
+    <input type="text" name="search" class="form-control" id="search" placeholder="Enter keyword">
   </div>
+<button class="btn btn-default" type="submit" id="submit">Submit</button>
+
+</form>
+</div>
+      <div class="col-xs-6 col-sm-3">2</div>
+      <div class="clearfix visible-xs-block"></div>
+      <div class="col-xs-6 col-sm-3">3</div>
+      <div class="col-xs-6 col-sm-3">4</div>
+    </div>
+
+
+
+  </div>
+
+
+<div class="result">
+  
+</div>
+
+
+
+
   <footer>Our footer</footer>
   </body>
 </html>
