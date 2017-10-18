@@ -2,25 +2,17 @@
 
 var express = require('express');
 var router = express.router(); //creating a reusable bit of code - instea of app.get, app.post, etc - we are dot chaining
-var staticController = require('..controllers/staticsController'); //all things declared in users.js file
-var usersController = require('..controllers/usersController');
-var searchesController = require('..controllers/searchesController');
-var likedTweetsController = require('..controllers/likedTweetsController');
+var controllers = require('../controllers');
 
-router.route('/')
-  .get(staticController.home);
+//routes: object as defined above, within index find the controller, within the controller run the function
+router.route('/likedTweets')
+  .get(controllers.tweets.show);
 
 router.route('/users')
-  .get(usersController.users);
+  .get(controller.users.usersShow);
 
-router.route('/users/id:')
-  .get(usersController.index);
-
-// router.route('/users/keywords')
-//   .get();
-
-// router.route('/users/likedTweets')
-//   .get();
+router.route('/searches:')
+  .get(controller.searches.searchesShow);
 
 
 module.experts = router; //make these routes globally available
