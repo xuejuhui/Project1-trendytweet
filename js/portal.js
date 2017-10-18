@@ -15,9 +15,10 @@ $(document).ready(function(){
 		q: search,
 	},
 		success: onSuccess
+		console.log(search);
 
 	})
-		console.log(q);
+	
 
 	function onSuccess(response){
 		console.log(response)
