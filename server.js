@@ -102,6 +102,9 @@ app.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
 });
+app.get('/portal', function(req, res){
+  res.sendFile('html/portal.html' , { root : __dirname});
+});
 
 
 //getting twitter auth 
