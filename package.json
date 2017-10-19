@@ -2,7 +2,7 @@
   "name": "project1-trendytweet",
   "version": "1.0.0",
   "description": "We Got This",
-  "main": "server.js",
+  "main": "portal.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
