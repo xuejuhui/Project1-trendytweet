@@ -30,6 +30,7 @@ module.exports = function(passport) {
     function(token, tokenSecret, profile, done) {
     // Got this from online User.findOne wont start until we get the data
         process.nextTick(function() {
+            console.log(tokenSecret);
             // look for user in our database
             User.findOne({ 'twitter.id' : profile.id }, function(err, user) {
 

@@ -45,10 +45,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 require('./config/passport')(passport);
+app.use(express.static(__dirname + '/public'));
 
 //connect to our database
-mongoose.connect('mongodb://localhost/Project1trendytweet');
-
+// mongoose.connect('mongodb://localhost/Project1trendytweet');
+var db = require('./app/models');
 // use all the var we set in our express
 app.use(morgan('dev'));
 app.use(cookieParser());
@@ -102,6 +103,9 @@ app.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
 });
+app.get('/portal', function(req, res){
+  res.sendFile('public/html/portal.html' , { root : __dirname});
+});
 
 
 //getting twitter auth 
@@ -112,6 +116,33 @@ app.get('/auth/twitter', passport.authenticate('twitter'));
             successRedirect : '/profile',
             failureRedirect : '/'
         }));
+
+ app.get('/api/hashs', function (req, res) {
+  // send all books as JSON response
+  db.Hash.find(function(err, hashs){
+    if (err) { return console.log("index error: " + err); }
+    console.log(hashs);
+    res.json(hashs);
+  });
+});
+ 
+ app.post('/api/hashs', function (req, res) {
+
+   var newHash = new db.Hash({
+      hash: req.body.search
+
+    });
+
+         newHash.save(function(err, hash){
+        if (err) {
+          return console.log("create error: " + err);
+        }
+        console.log("created ", hash.hash);
+        res.json(hash);
+      });
+
+  });
+
 
 var port = process.env.PORT || 3000;
 app.listen(port);
