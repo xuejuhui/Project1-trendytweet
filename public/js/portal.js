@@ -1,4 +1,4 @@
-console.log("%cGETOUT!", "color: red; font-size:150px;"); 
+console.log("%cGETOUT!", "color: red; font-size:150px;");
 var $hashsList;
 var allHashs=[];
 var allResult;
@@ -7,6 +7,14 @@ var $tweetList;
 
 
 $(document).ready(function(){
+
+	$.ajax({
+		method: 'GET',
+		url: 'api/hashs',
+		success: postHashs,
+		error: errorHashs
+	});
+
 	$hashsList = $('#result');
 	$tweetList = $('#result2');
 	$('.mainBody').on('submit',"#getPosts", function(event){
@@ -35,15 +43,35 @@ $(document).ready(function(){
 		// });
 
 })
-	
+
   });
 
+function postHashs (json){
+	console.log(json);
+	json.forEach(function(hashs){
+		renderHash(hashs)
+	});
+}
+
+function renderHash(hashObj){
+		$(".appendedSearches").append(`
+			<div class="renderedHash">
+				<p>${hashObj.hash}</p>
+			</div>
+			`);
+};
+
+function errorHashs (err){
+	console.log('error', err);
+}
 
 function hashSuccess(json) {
 	console.log(json);
   $('#search').val();
   allHashs.push(json);
   render();
+	var searchQuery = $('#search').val();
+	$(".appendedSearches").append(searchQuery);
 }
 function willSuccess(json) {
  allHashs="";
@@ -63,7 +91,7 @@ function willSuccess(json) {
  	}
 
  	return abc;
-      
+
 }
 
 function getAllHashsHtml(hashs) {
@@ -81,6 +109,5 @@ function render () {
 
   // append html to the view
   $hashsList.append(HashsHtml);
+
 };
-
-
