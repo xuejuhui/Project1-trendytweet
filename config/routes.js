@@ -5,14 +5,18 @@ var router = express.router(); //creating a reusable bit of code - instea of app
 var controllers = require('../controllers');
 
 //routes: object as defined above, within index find the controller, within the controller run the function
-router.route('/likedTweets')
-  .get(controllers.tweets.show);
+router.route('/hash')
+  .get(controllers.hash.show);
 
 router.route('/users')
   .get(controller.users.usersShow);
 
-router.route('/searches:')
-  .get(controller.searches.searchesShow);
+router.route('/tweets')
+  .get(controller.tweets.searchesShow);
+
+router.route('/hashUser')
+  .get(controller.hashUser.hashUserShow);
+
 
 
 module.experts = router; //make these routes globally available

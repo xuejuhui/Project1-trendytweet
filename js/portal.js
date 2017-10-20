@@ -43,10 +43,10 @@
 			// console.log(search);
 
 		})
-})
+
 
 		function onSuccess(response){
 			console.log(response)
 			// var statuses = response.statuses
 		}
-})
+});
