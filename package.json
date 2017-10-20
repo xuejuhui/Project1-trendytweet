@@ -31,6 +31,7 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.4",
+    "twit": "^2.2.9",
     "twitter": "^1.7.1",
     "twitter-login-client": "^1.0.2"
   }
