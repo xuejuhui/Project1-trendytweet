@@ -30,7 +30,7 @@ module.exports = function(passport) {
     function(token, tokenSecret, profile, done) {
     // Got this from online User.findOne wont start until we get the data
         process.nextTick(function() {
-            console.log(tokenSecret);
+            
             // look for user in our database
             User.findOne({ 'twitter.id' : profile.id }, function(err, user) {
 
@@ -45,6 +45,9 @@ module.exports = function(passport) {
                     newUser.twitter.token       = token;
                     newUser.twitter.username    = profile.username;
                     newUser.twitter.displayName = profile.displayName;
+                    newUser.twitter.tokenSecret = tokenSecret;
+                    
+                    
 
                     // save new user into the database
                     newUser.save(function(err) {
@@ -57,6 +60,8 @@ module.exports = function(passport) {
 
     });
 
+        console.log(token);
+console.log(tokenSecret);
     }));
 
     // local signup from lecture, most of these codes are from lecture

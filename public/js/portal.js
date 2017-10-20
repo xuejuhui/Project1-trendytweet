@@ -1,39 +1,69 @@
-console.log("Sanity Check: JS is working!");
+console.log("%cGETOUT!", "color: red; font-size:150px;"); 
 var $hashsList;
 var allHashs=[];
+var allResult;
 var hashUrl = '/api/hashs';
+var $tweetList;
 
 
 $(document).ready(function(){
 	$hashsList = $('#result');
+	$tweetList = $('#result2');
 	$('.mainBody').on('submit',"#getPosts", function(event){
 		event.preventDefault();
-
 		var search = $('#search').val();
 		console.log(search);
-	$.ajax({
-		method: 'POST',
-		url: hashUrl,
-		data: $(this).serialize(),
-		success: hashSuccess
+		console.log($(this).serialize());
+		$.ajax({
+			method: 'POST',
+			url: hashUrl,
+			data: $(this).serialize(),
+			success: hashSuccess,
+			error: function(a,b,c){
+				console.log(b);
+				console.lgo(c);
+			}
+		});
+		// $.ajax({
+		// 	method: 'GET',
+		// 	url: 'search/tweets',
+		// 	data: $(this).serialize(),
+		// 	success: willSuccess,
+		// 	error: function(a,b,c){
+		// 		console.log(a,b,c)
+		// 	}
+		// });
 
-
-	});
 })
 	
-  }
-  );
+  });
+
+
 function hashSuccess(json) {
+	console.log(json);
   $('#search').val();
   allHashs.push(json);
   render();
 }
-  
+function willSuccess(json) {
+ allHashs="";
+ allHashs = json;
+ console.log(allHashs);
+  render();
+}
+
  function getHashHtml(hash) {
-  return `<hr>
+ 	var abc =''
+ 	for(i=0; i<hash.statuses.length; i++){
+ 		var sb= hash.statuses[i].text
+ 		  abc+= `<hr>
           <p>
-            <b>${hash.hash}</b>
+            <b>${sb}</b>
           </p>`;
+ 	}
+
+ 	return abc;
+      
 }
 
 function getAllHashsHtml(hashs) {
@@ -52,22 +82,5 @@ function render () {
   // append html to the view
   $hashsList.append(HashsHtml);
 };
-
-
-
-
-
-
-
-  // $('#submit').on('submit', function(e) {
-  //   e.preventDefault();
-  //   $.ajax({
-  //     method: 'GET',
-  //     url: 'https://api.twitter.com/1.1/search/tweets.json'
-  //     success: tweetSuccess,
-  //     error: tweetError
-  //   });
-
-
 
 
