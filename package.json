@@ -1,0 +1,43 @@
+{
+  "name": "project1-trendytweet",
+  "version": "1.0.0",
+  "description": "Objectives:\r In this project we use skills learned thus far in WDI to:\r - allow users to login to our webpage using a local signup by creating a username and password\r - allow users to login to our webpage using Twitter 1.0 O-Auth\r - save user login info in a database\r - allow users to search keywords/ hashtags and pull up a twitter feed of those related hashtags\r - save user's keyword searches",
+  "main": "seed.js",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "method-override": "^2.3.10",
+    "mongoose": "^4.12.4",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "passport-twitter": "^1.0.4",
+    "twit": "^2.2.9",
+    "twitter": "^1.7.1",
+    "twitter-login-client": "^1.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xuejuhui/Project1-trendytweet.git"
+  },
+  "engines": {
+    "node": "8.6.0",
+    "npm": "5.3.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xuejuhui/Project1-trendytweet/issues"
+  },
+  "homepage": "https://github.com/xuejuhui/Project1-trendytweet#readme"
+}
