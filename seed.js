@@ -20,14 +20,11 @@ hash.Hash.remove({}, function(err, hashs){
   } 
 
     // create new records based on the array hash_list
-    hash.Hash.create(hash_list, function(err, hashs){
-      if (err) { return console.log('err', err); }
-      console.log("created", hashs.length, "hashs");
-    });
+//     hash.Hash.create(hash_list, function(err, hashs){
+//       if (err) { return console.log('err', err); }
+//       console.log("created", hashs.length, "hashs");
+//     });
   
 });
 
-   // hash.create(hash_list, function(err, hashs){
-   //    if (err) {console.log('err', err); }
-   //    console.log("created", hashs.length, "hashs");
-   //  });
+  
