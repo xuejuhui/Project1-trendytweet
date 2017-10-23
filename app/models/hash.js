@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var HashSchema = new Schema({
+	userId :String,
 	hash: String
 })
 

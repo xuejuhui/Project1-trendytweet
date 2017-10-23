@@ -12,7 +12,6 @@ var Twit = require('twit')
 
 require('./config/passport')(passport);
 app.use(express.static(__dirname + '/public'));
-var pass = require('./config/passport')(passport);
 
 
 //connect to our database
@@ -96,7 +95,10 @@ app.get('/auth/twitter/callback',
 
 app.get('/api/hashs', function(req, res) {
     // send all books as JSON response
-    db.Hash.find(function(err, hashs) {
+
+    db.Hash.find({
+        userId: req.user._id
+    }, function(err, hashs) {
         if (err) {
             return console.log("index error: " + err);
         }
@@ -108,6 +110,7 @@ app.get('/api/hashs', function(req, res) {
 app.post('/api/hashs', function(req, res) {
 
     var newHash = new db.Hash({
+        userId: req.user._id,
         hash: req.body.search
 
     });
@@ -128,10 +131,6 @@ app.post('/api/hashs', function(req, res) {
         timeout_ms: 60 * 1000,
     })
 
-    // T.post('statuses/update', { status: 'ken and peng is trash' }, function(err, data, response) {
-    //   console.log("POST: ", data)
-    // })
-
     var params = {
         q: req.body.search,
         count: 10
@@ -147,38 +146,6 @@ app.post('/api/hashs', function(req, res) {
 
     });
 });
-
-// app.get('/search/tweets', function(req, response){
-//   response.json(tweetsB);
-// })
-
-
-
-
-//    function storeHash (req, res){
-//  let hashUser_id = parseInt();
-
-//  db.hashUser.findById(req.params.id, function (error, detectedHashUser){
-//    res.json (detectedHashUser);
-//    detectedHashUser.append();
-//  });
-// }
-
-// function destroy (req,res){
-//  let hashUser_id = parseInt();
-
-//  db.hashUser.findById(req.params.id, function(error,detectedHashUser){
-//    res.json (detectedHashUser);
-//      detectedHashUser.remove();
-//  });
-// }
-
-// module.exports = {
-//  storeHash: storeHash,
-//  destroy: destroy
-// };
-
-
 
 
 var port = process.env.PORT || 3000;

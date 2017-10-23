@@ -4,29 +4,26 @@
   <meta charset="utf-8">
   <title>TrendyTweet</title><!-- stylesheets -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/portal.css" rel="stylesheet"><!--scripts-->
-    <!--scripts-->
+    <link href="css/portal.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/portal.js"></script>
   </head>
-  <body>
-    <header class = "text-center">TrendyTweets</header>
-      <div class="container nav navbar-default navbar-static-top">
-  <nav>
-    <ul class="nav-tabs navbar-right navbar-brand list-unstyled">
-      <li>
-        <a href="/portal"><i class="glyphicon glyphicon-home"></i> Home</a>
-        <a href="/profile"><i class="glyphicon glyphicon-profile"></i>Profile</a>
-      </li>
-    </ul>
-  </nav>
-</div>
+  <body class="bg">
+  <header>
+    <div class="container nav navbar-default navbar-static-top">
+    <nav>
+      <ul class="nav-tabs navbar-right navbar-brand list-unstyled">
+        <li>
+          <a href="/portal"><i class="glyphicon glyphicon-home"></i> Portal</a>
+          <a href="/profile"><i class="glyphicon glyphicon-profile"></i>Profile</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 <div class="container">
-
   <div class="row">
       <div class="col-xs-6 col-sm-3">
-        
 </div>
   <div class="container mainBody">
       <div class="row text-center well">
@@ -37,20 +34,18 @@
             </div>
           </form>
         </div>
-        <div class="col-md-3" id = 'result2'>
-          2
+        <div>
+            <h3 class="text-left"> Tweet Results:</h3>
+        <div class="col-md-3 text-left" id = 'result'>
         </div>
+      </div>
         <div class="clearfix visible-xs-block">
         </div>
-        <div class="col-md-6 col-md-offset-2" id="result">
-          3
-        </div>
-        <div class="col-md-3">
-          4
+        <div class="col-md-6 col-md-offset-2 appendedSearches text-left">
+          <h3 class="text-left">Recent Searches:</h3>
         </div>
       </div>
     </div>
-
   <footer>
     <div class="col-md-3">
       <h4>Who We Are</h4>
@@ -60,10 +55,10 @@
       <h4>Links</h4>
       <ul class="list-unstyled">
         <li>
-          <a href="/Logout"><i class="glyphicon glyphicon-chevron-right"></i> Logout</a>
+          <a href="/login"><i class="glyphicon glyphicon-chevron-right"></i> Login</a>
         </li>
         <li>
-          <a href="portal.html"><i class="glyphicon glyphicon-home"></i> Home</a>
+          <a href="/"><i class="glyphicon glyphicon-home"></i> Home</a>
         </li>
       </ul>
     </div>
@@ -87,8 +82,10 @@
     </div>
     <div class="col-md-2">
       <h4>Shout Outs</h4>
-      <p>Twitter please update your 1.0Auth, it sucks!</p>
-      <h6>Ken , Peng</h6>
+      <p>Twitter please update your 1.0 O-Auth, it sucks!</p>
+      <h6>Ken, Peng</h6>
+      <h6>Justin, Kay</h6>
+      <h6>Stephanie</h6>
     </div>
   </footer>
 </body>

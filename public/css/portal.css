@@ -1,3 +1,19 @@
-.container{
-  border: solid black 2px;
+body, html {
+ background-image: url("https://zomgbored.files.wordpress.com/2011/09/twitterbackgroun.jpg");
+   height: 100%;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
 }
+.container{
+background-color: rgba(225,225,225,0.3);
+}
+
+h3{
+ text-align: left;
+}
+#result{
+	background-color: rgb(225,225,225,0.3);
+
+}
+
