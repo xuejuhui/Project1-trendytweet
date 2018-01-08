@@ -11,7 +11,7 @@ var session = require('express-session');
 var Twit = require('twit')
 
 require('./config/passport')(passport);
-require('./config/config.js');
+require("dotenv").load();
 app.use(express.static(__dirname + '/public'));
 
 
@@ -123,12 +123,12 @@ app.post('/api/hashs', function(req, res) {
         console.log("created ", hash.hash);
 
     });
-
+    console.log(process.env.consumer_key)
     const T = new Twit({
-        consumer_key: config.consumer_key,
-        consumer_secret: config.consumer_secret,
-        access_token: config.access_token,
-        access_token_secret: config.access_token_secret,
+        consumer_key: process.env.consumer_key,
+        consumer_secret: process.env.consumer_secret,
+        access_token: process.env.access_token,
+        access_token_secret: process.env.access_token_secret,
         timeout_ms: 60 * 1000,
     })
 

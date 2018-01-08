@@ -3,7 +3,7 @@ var TwitterStrategy = require('passport-twitter').Strategy;
 
 var User = require('../app/models/user.js');
 require("./config.js")
-
+require("dotenv").load();
 module.exports = function(passport) {
 
 
@@ -17,12 +17,11 @@ module.exports = function(passport) {
             done(err, user);
         });
     });
-
+    
     // TwitterStrategy
     passport.use(new TwitterStrategy({
-
-            consumerKey: config.consumerKey,
-            consumerSecret: config.consumerSecret,
+            consumerKey: process.env.consumer_key,
+            consumerSecret: process.env.consumer_secret,
             callbackURL: 'http://localhost:3000/auth/twitter/callback'
 
         },
