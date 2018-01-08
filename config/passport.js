@@ -2,6 +2,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var TwitterStrategy = require('passport-twitter').Strategy;
 
 var User = require('../app/models/user.js');
+require("./config.js")
 
 module.exports = function(passport) {
 
@@ -20,8 +21,8 @@ module.exports = function(passport) {
     // TwitterStrategy
     passport.use(new TwitterStrategy({
 
-            consumerKey: 'OUjwUJqiRoqpG0gTlZcgA1mv2',
-            consumerSecret: 'prILcGZOQL9bRBrnk41tD1IdE4ZTNkGuYTfvtngvRtXk9rua1H',
+            consumerKey: config.consumerKey,
+            consumerSecret: config.consumerSecret,
             callbackURL: 'http://localhost:3000/auth/twitter/callback'
 
         },

@@ -11,6 +11,7 @@ var session = require('express-session');
 var Twit = require('twit')
 
 require('./config/passport')(passport);
+require('./config/config.js');
 app.use(express.static(__dirname + '/public'));
 
 
@@ -123,11 +124,11 @@ app.post('/api/hashs', function(req, res) {
 
     });
 
-    var T = new Twit({
-        consumer_key: 'OUjwUJqiRoqpG0gTlZcgA1mv2',
-        consumer_secret: 'prILcGZOQL9bRBrnk41tD1IdE4ZTNkGuYTfvtngvRtXk9rua1H',
-        access_token: '3068070909-G5BjVgXzjIsJZG8P96NqYAx106JjthMWV9PmJ0w',
-        access_token_secret: 'IEjMg4hA5YDelbBoU5hvmV0dDz7DgyZiJXSXNmzuZEADY',
+    const T = new Twit({
+        consumer_key: config.consumer_key,
+        consumer_secret: config.consumer_secret,
+        access_token: config.access_token,
+        access_token_secret: config.access_token_secret,
         timeout_ms: 60 * 1000,
     })
 
@@ -135,7 +136,6 @@ app.post('/api/hashs', function(req, res) {
         q: req.body.search,
         count: 10
     }
-    console.log(req.body.search);
     T.get('search/tweets', params, function(err, data, response) {
         if (err) {
             return res.json(err)

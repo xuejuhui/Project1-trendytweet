@@ -1,9 +1,9 @@
 console.log("%cGETOUT!", "color: red; font-size:150px;");
-var $hashsList;
-var allHashs = [];
-var allResult;
-var hashUrl = '/api/hashs';
-var $tweetList;
+let $hashsList;
+let allHashs = [];
+let allResult;
+const hashUrl = '/api/hashs';
+let $tweetList;
 
 
 $(document).ready(function() {
@@ -19,7 +19,7 @@ $(document).ready(function() {
     $tweetList = $('#result2');
     $('.mainBody').on('submit', "#getPosts", function(event) {
         event.preventDefault();
-        var search = $('#search').val();
+        let search = $('#search').val();
         console.log($(this).serialize());
         $.ajax({
             method: 'POST',
@@ -37,14 +37,14 @@ $(document).ready(function() {
 
 });
 
-function postHashs(json) {
-    console.log(json);
+let postHashs = json => {
     json.forEach(function(hashs) {
         renderHash(hashs)
+
     });
 }
 
-function renderHash(hashObj) {
+let renderHash = hashObj => {
     $(".appendedSearches").append(`
 			<div class="renderedHash">
 				<p>${hashObj.hash}</p>
@@ -56,12 +56,12 @@ function errorHashs(err) {
     console.log('error', err);
 }
 
-function hashSuccess(json) {
+let hashSuccess = json => {
     console.log(json);
     $('#search').val();
     allHashs.push(json);
     render();
-    var searchQuery = $('#search').val();
+    let searchQuery = $('#search').val();
     $(".appendedSearches").append(`<br>${searchQuery}<br>`);
     $('#getPosts input').val('');
 }
@@ -74,9 +74,9 @@ function willSuccess(json) {
 }
 
 function getHashHtml(hash) {
-    var abc = ''
+    let abc = ''
     for (i = 0; i < hash.statuses.length; i++) {
-        var sb = hash.statuses[i].text
+        let sb = hash.statuses[i].text
         abc += `<hr>
           <p>
             <b>${sb}</b>
@@ -99,7 +99,7 @@ function render() {
 
 
     // pass `allBooks` into the template function
-    var HashsHtml = getAllHashsHtml(allHashs);
+    let HashsHtml = getAllHashsHtml(allHashs);
 
     // append html to the view
     $hashsList.append(HashsHtml);

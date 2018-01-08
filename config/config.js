@@ -1,13 +1,8 @@
-module.exports = {
-  consumer_key: 'U5krUNhBbwRJ9qylf8VOovppS',
-  consumer_secret: '6OJ43zCUPizw95QwsOtRY3x8GqIllJ9pGC1XihWADxgFuie3Uf',
-  access_token: '775627268-kvC3mMrJYNJSQ1gnvWuSk2ftfnMBPaUfwddumqvk',
-  access_token_secret: '15W8lDxYo54QmjBvQNPoP4fvIdSceXCFoj4lxBOdYRULi
-'
+var config = {
+  consumer_key: '7NfieIUe9InhsSjWSOnqRRKBo',
+  consumer_secret: 'gBgEoNnV8smLlDXWE2dbv9GrLl9aKBLBgsZHxZ9OI81IqapaFf',
+  access_token: '3068070909-G5BjVgXzjIsJZG8P96NqYAx106JjthMWV9PmJ0w',
+  access_token_secret: 'IEjMg4hA5YDelbBoU5hvmV0dDz7DgyZiJXSXNmzuZEADY'
 }
+module.exports = config
 
-
-consumerKey     : 'OUjwUJqiRoqpG0gTlZcgA1mv2',
-consumerSecret  : 'prILcGZOQL9bRBrnk41tD1IdE4ZTNkGuYTfvtngvRtXk9rua1H',
-access_token: user.twitter.token,
-access_token_secret: 
